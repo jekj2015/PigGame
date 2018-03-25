@@ -18,14 +18,17 @@ document.querySelector('.dice').style.display = 'none';
 
 document.querySelector('.btn-hold').addEventListener('click',function(){
     
+     scores[activePlayer] += roundScore;
     
-    scores[activePlayer] += roundScore;
-    document.querySelector('#score-'+activePlayer).textContent = roundScore;
+    console.log("Active player total" + activePlayer  + scores[activePlayer])
     
-    if(scores[activePlayer] >= 100)
+   
+    document.querySelector('#score-'+activePlayer).textContent = scores[activePlayer];
+    
+    if(scores[activePlayer] >= 30)
         {
             
-            document.querySelector('#name-'+activePlayer).textContent = Winner;
+            document.querySelector('#name-'+activePlayer).textContent = "Winner";
             
         }
     else
@@ -44,7 +47,7 @@ var diceDOM = document.querySelector('.dice');
         {
             
             
-            roundScore+= dice;
+            roundScore = dice;
             document.getElementById('current-'+activePlayer).textContent = dice;
            // document.querySelector('#score-'+activePlayer).textContent = roundScore;
         }
